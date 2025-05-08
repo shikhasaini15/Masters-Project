@@ -1,11 +1,11 @@
 # Masters-Project
-Integrating LCMS-Based Metabolomics to Elucidate Resistance Training on Skeletal Muscle: A Metabolite-Gene Network-based Approach Using Cytoscape
+"Integrating LCMS-Based Metabolomics to Elucidate Resistance Training on Skeletal Muscle: A Metabolite-Gene Network-based Approach Using Cytoscape"
 
-Introduction
+1. Introduction
 
 Resistance training (RT) is widely recognized as the most effective intervention to mitigate muscle loss and functional decline in older adults. Despite its well-documented benefits, there exists considerable inter-individual variability in muscle growth and adaptation following RT, particularly among the elderly population. Recent advances in metabolomics, especially those utilizing liquid chromatography-mass spectrometry (LC-MS), have revealed significant shifts in amino acid and gut-derived metabolites in trained muscle tissue. However, the molecular mechanisms and regulatory networks that underpin these metabolomic changes remain largely unexplored. Integrating metabolomic data with gene expression profiles offers a promising strategy to unravel the complex biological networks that drive muscle adaptation to RT. This report examines a study that employs an integrated, network-based approach to elucidate the molecular underpinnings of RT responsiveness in older adults, with the ultimate goal of informing personalized interventions to combat age-related muscle loss.
 
-Aim and Objectives
+2. Aim and Objectives
 
 The primary aim of the study is to identify metabolite-gene networks that underlie differential responsiveness to resistance training in older adults by integrating LC-MS-based metabolomics with transcriptomic data, with a particular focus on pathway regulation. 
 The specific objectives are threefold: 
@@ -16,9 +16,9 @@ The specific objectives are threefold:
 
 (3) to construct integrated Cytoscape networks to identify regulatory nodes and hub genes associated with muscle adaptation.
 
-Materials and Methods
+3.Materials and Methods
 
-UHPLC-MS Analysis: Step-by-Step Protocol
+3.1. UHPLC-MS Analysis: Step-by-Step Protocol
 
 A. Data Acquisition
 1.	Data Collection:
@@ -30,7 +30,7 @@ A. Data Acquisition
 2.	Documentation:
 •	Note all run order, conditions, file names, and instrument maintenance logs for reproducibility.
 
-Statistical Analysis on MetaboAnalyst
+3.2. Statistical Analysis on MetaboAnalyst
 
 A. Data Integrity and Cleaning
 1.	Initial Assessment:
@@ -66,7 +66,7 @@ C. Multivariate and Univariate Analysis
 9.	Univariate Testing:
 •	For each metabolite, perform (N-way) ANOVA or t-tests (e.g., log-transformed data), correcting for multiple comparisons (e.g., Benjamini-Hochberg FDR).
 
-2.6 Metabolomic Analysis: Step-by-Step Protocol
+3.3. Metabolomic Analysis: Step-by-Step Protocol
 A. Annotation and Curation
 1.	Peak Annotation:
 •	Assign putative metabolite IDs to each feature using MS/MS matching to known spectral libraries (e.g., HMDB, METLIN, KEGG).
@@ -79,7 +79,7 @@ B. Feature Selection and Visualization
 4.	Visualizations:
 •	Use MetaboAnalyst or MATLAB to create PCA, PLSDA, heat maps, volcano plots, and boxplots.
 
-FOR FUTURE WORK
+3.4. FOR FUTURE WORK
 1.	Pathway and Network Analysis
 
 2.	Enrichment Analysis:
