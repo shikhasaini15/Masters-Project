@@ -50,7 +50,7 @@ C. Multivariate and Univariate Analysis
 •	Perform permutation analysis to test significance of classification performance.
 9.	Univariate Testing:
 •	For each metabolite, perform (N-way) ANOVA or t-tests (e.g., log-transformed data), correcting for multiple comparisons (e.g., Benjamini-Hochberg FDR).
-________________________________________
+
 2.6 Metabolomic Analysis: Step-by-Step Protocol
 A. Annotation and Curation
 1.	Peak Annotation:
