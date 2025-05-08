@@ -67,6 +67,7 @@ C. Multivariate and Univariate Analysis
 •	For each metabolite, perform (N-way) ANOVA or t-tests (e.g., log-transformed data), correcting for multiple comparisons (e.g., Benjamini-Hochberg FDR).
 
 3.3. Metabolomic Analysis: Step-by-Step Protocol
+
 A. Annotation and Curation
 1.	Peak Annotation:
 •	Assign putative metabolite IDs to each feature using MS/MS matching to known spectral libraries (e.g., HMDB, METLIN, KEGG).
