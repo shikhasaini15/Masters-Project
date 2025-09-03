@@ -1,99 +1,42 @@
 # Masters-Project
-"Integrating LCMS-Based Metabolomics to Elucidate Resistance Training on Skeletal Muscle: A Metabolite-Gene Network-based Approach Using Cytoscape"
+"Mapping BCAA Metabolic Adaptations to Resistance Training in Aging Muscle: A Cytoscape-Based Network Analysis"
 
-1. Introduction
+Introduction
 
-Resistance training (RT) is widely recognized as the most effective intervention to mitigate muscle loss and functional decline in older adults. Despite its well-documented benefits, there exists considerable inter-individual variability in muscle growth and adaptation following RT, particularly among the elderly population. Recent advances in metabolomics, especially those utilizing liquid chromatography-mass spectrometry (LC-MS), have revealed significant shifts in amino acid and gut-derived metabolites in trained muscle tissue. However, the molecular mechanisms and regulatory networks that underpin these metabolomic changes remain largely unexplored. Integrating metabolomic data with gene expression profiles offers a promising strategy to unravel the complex biological networks that drive muscle adaptation to RT. This report examines a study that employs an integrated, network-based approach to elucidate the molecular underpinnings of RT responsiveness in older adults, with the ultimate goal of informing personalized interventions to combat age-related muscle loss.
+Sarcopenia, the progressive loss of skeletal muscle mass and strength with aging, is a major contributor to frailty, disability, and reduced quality of life in older adults.(Zuo et al., 2025) While resistance training (RT) is the most effective non pharmacologic strategy to counteract this decline, responses are highly variable; some individuals experience robust hypertrophy and functional gains, whereas others show only modest improvement. Understanding the molecular determinants of this heterogeneity is essential for developing personalized interventions.
+Metabolomics provides a systems level snapshot of the biochemical state of muscle and can reveal pathways that are most responsive to exercise.(Patti et al., 2012, Wishart, 2019) Recent untargeted liquid chromatography–mass spectrometry (LC MS) studies have identified thousands of metabolites altered by RT, yet the integration of these data with gene and enzyme networks remains limited.(Zhou et al., 2012) Branched chain amino acids (BCAAs) pathways are of particular interest because they directly regulate mTORC1 signalling, mitochondrial oxidative metabolism, and have been implicated in both muscle protein synthesis and sarcopenia progression. Using the well-characterized BCAA pathway as a biological benchmark, this study illustrates Cytoscape’s ability to validate canonical reactions and, via flexible visualization and plugins such as MetScape, to generate novel, data-driven hypotheses.(Zuo et al., 2025)  
+Applying this workflow to the BCAA pathway, we mapped 20 input metabolites alongside related genes and enzymes. After RT, valine was the most upregulated metabolite, whereas N acetyl L glutamate and succinic anhydride were most downregulated, indicating remodelling of BCAA flux. Furthermore, Correlation network analysis revealed strong positive correlations among leucine, isoleucine, valine, and 5 oxoproline, indicating coordinated regulation of BCAA metabolism (Rosato et al., 2018, Ian R. Lanza, 2010). Biologically, increased valine with tight BCAA co regulation is consistent with enhanced BCAA trafficking/oxidation during remodelling, (Gagandeep Mann, 2021) while decreased N acetyl L glutamate suggests shifted nitrogen handling and urea cycle post training (Neinast et al., 2019) reduced succinic anhydride aligns with increased TCA flux and lower acylation pressuring,(Adegoke et al., 2012) , highlighting Cytoscape's power in uncovering complex metabolic relationships.(Shannon et al., 2003) This work establishes a reliable reproducible framework for network analysis, showcasing Cytoscape as an indispensable tool for developing targeted biomarker and therapeutic strategies (Zhang et al., 2013, Patti et al., 2012)
 
-2. Aim and Objectives
+Abstract:
+Aging-associated muscle decline (sarcopenia) is partly driven by disruptions in metabolic and genetic pathways. This study applies a network-based approach centred on Cytoscape, a free open-source platform with an extensive plugin ecosystem and beginner-friendly tutorials, to learn and deploy reliable workflows for pathway and network analysis of multi-omics data. Using the MetScape app in Cytoscape, which integrates KEGG content, we will construct metabolite–gene interaction and pathway networks from LC MS metabolomics data.  To validate the methodology, established BCAA metabolic reactions are used as a benchmark to confirm Cytoscape's capacity to both reproduce known biological interactions and generate novel hypotheses from experimental data. Using Cytoscape, we constructed detailed metabolite-gene interaction networks allowing comprehensive visualization and direct comparison of regulatory network changes. To capture coordinated metabolite behaviour, we will also build correlation networks using MetScape correlation workflow (including DSPC-based modelling and flexible thresholds), which supports both known and unknown metabolites for robust co variation analysis. Statistical analyses revealed significant shifts in metabolites and gene expression after RT. By developing hands on proficiency in Cytoscape’s documented workflows and leveraging its actively maintained ecosystem, this study establishes a reproducible, reliable framework for BCAA centric network analysis in sarcopenia research and hypothesis generation for therapeutic targets. 
 
-The primary aim of the study is to identify metabolite-gene networks that underlie differential responsiveness to resistance training in older adults by integrating LC-MS-based metabolomics with transcriptomic data, with a particular focus on pathway regulation. 
-The specific objectives are threefold: 
+Materials and Methods
 
-(1) to characterize pre- and post-RT changes in muscle metabolomic profiles and stratify participants into high responders (HighR) and low responders (LowR) based on muscle cross-sectional area (CSA) gains
 
-(2) to identify exercise-responsive genes from public gene expression datasets (GEO) and link these to metabolomic findings
-
-(3) to construct integrated Cytoscape networks to identify regulatory nodes and hub genes associated with muscle adaptation.
-
-3.Materials and Methods
-
-3.1. UHPLC-MS Analysis: Step-by-Step Protocol
-
-A. Data Acquisition
-1.	Data Collection:
-•	Acquire raw data in full-scan mode.
-•	Bracket each analytical batch with blank, QC, and system suitability test injections.
-•	For compound annotation, run data-dependent MS2 (ddMS2) acquisition on selected pooled QCs over defined m/z windows.
-•	Use Compound Discoverer 3.2 to deconvolute raw MS data and create Excels
-
-2.	Documentation:
-•	Note all run order, conditions, file names, and instrument maintenance logs for reproducibility.
-
-3.2. Statistical Analysis on MetaboAnalyst
-
-A. Data Integrity and Cleaning
-1.	Initial Assessment:
-•	Use Shapiro-Wilk test to assess data normality for each metabolite feature.
-•	Identify and, if justified, remove outlier injections or failed runs.
-
-2.	Baseline Group Comparisons:
-•	Use unpaired t-tests for continuous variables (e.g., age, body mass, CSA).
-•	Use chi-square test for nominal variables (e.g., clinical conditions).
-
-3.	Intervention Effect Assessment:
-•	For CSA: Employ linear mixed models (group x time interaction); use Tukey post-hoc if significant.
-•	Use unpaired t-tests for percent change comparisons between HighR and LowR.
-
-B. Data Pre-Processing for Metabolomics
-4.	Data Matrix Creation:
-•	Use Compound Discoverer 3.2 to deconvolute raw MS data and create an aligned metabolite-feature intensity matrix.
-
-5.	Normalization:
-•	Apply normalization across samples (best practice: total ion count, median normalization, or using internal standard/QC-based approaches).
-
-C. Multivariate and Univariate Analysis
-6.	Principal Component Analysis (PCA):
-•	PCA to visualize variance and detect batch effects or clustering patterns.
-
-7.	Partial Least Squares Discriminant Analysis (PLSDA):
-•	Employ PLSDA to maximize discrimination between predefined groups (e.g., HighR vs. LowR, Pre vs. Post).
-•	Use cross-validation or bootstrapping to validate the model (e.g., 1,000 bootstraps).
-
-8.	Permutation Testing:
-•	Perform permutation analysis to test significance of classification performance.
-
-9.	Univariate Testing:
+3.2. MetaData Statistical Analysis on MetaboAnalyst and R
+.	Normalization: Apply normalization across samples .
+Use unpaired t-tests for continuous variables.
+•	Use chi-square test for nominal variables.
+Principal Component Analysis (PCA): PCA to visualize variance and detect batch effects or clustering patterns.
+Partial Least Squares Discriminant Analysis (PLSDA): Employ PLSDA to maximize discrimination between predefined groups (Pre vs. Post).
+Univariate Testing:
 •	For each metabolite, perform (N-way) ANOVA or t-tests (e.g., log-transformed data), correcting for multiple comparisons (e.g., Benjamini-Hochberg FDR).
 
 3.3. Metabolomic Analysis: Step-by-Step Protocol
 
 A. Annotation and Curation
-1.	Peak Annotation:
+1.	Peak Annotation:  mummichog
 •	Assign putative metabolite IDs to each feature using MS/MS matching to known spectral libraries (e.g., HMDB, METLIN, KEGG).
 2.	Manual Curation:
 •	Review automated annotations, remove noise/artifacts, and prioritize biologically relevant features.
 
 B. Feature Selection and Visualization
-3.	Variable Importance in Projection (VIP):
-•	From PLSDA, generate VIP scores and identify top contributing metabolites for group separation.
-4.	Visualizations:
-•	Use MetaboAnalyst or MATLAB to create PCA, PLSDA, heat maps, volcano plots, and boxplots.
+BCAA pathway because of its well established pathway and litreature avaibility  
 
-3.4. FOR FUTURE WORK
-1.	Pathway and Network Analysis
-
-2.	Enrichment Analysis:
-•	Use KEGG, GEO or other pathway tools (e.g., in MetaboAnalyst) to perform metabolic pathway enrichment with significant metabolites.
-•	Overlay findings onto pathway/network maps.
-
-3.	Network Visualization:
+C.	Network Visualization:
    Use Cytoscape to map gene-metabolite networks by integrating with transcriptomics data.
+   import KEGG ids to cytoscape plugin MetScape for pathway network 
+   select BCAAs compound-gene-enzyme-reaction network 
 
-D.  The initial data processing was performed using the open-source platform MetaboAnalyst. The data conversion in the original workflow utilized Compound Discoverer 3.2, a paid software bundled with the mass spectrometry (MS) machine.
-To transition to an open-source and customizable workflow, I plan to use Python and R for the following steps:
-1.	Raw Data Conversion: Convert raw MS data to mzML format using the Python library URSGAL (specifically, ThermoRawFileParser).
-2.	Metabolite Identification: Implement XC-MS via Python for this step.
-3.	Statistical Analysis: Perform statistical tests in R.
-4.	Network Analysis: Use Cytoscape for network-based analysis on the output files from both Compound Discoverer and XC-MS.
+D. correlaction network was claculated by Correlation calculater and visualise in cytoscape
 
